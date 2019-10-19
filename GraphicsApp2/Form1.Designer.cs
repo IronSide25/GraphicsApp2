@@ -82,10 +82,12 @@
             // 
             this.previewPanel.ColumnCount = 2;
             this.previewPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
+            this.previewPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.previewPanel.Location = new System.Drawing.Point(1053, 160);
             this.previewPanel.Name = "previewPanel";
             this.previewPanel.RowCount = 2;
             this.previewPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 256F));
+            this.previewPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.previewPanel.Size = new System.Drawing.Size(512, 869);
             this.previewPanel.TabIndex = 0;
             // 
