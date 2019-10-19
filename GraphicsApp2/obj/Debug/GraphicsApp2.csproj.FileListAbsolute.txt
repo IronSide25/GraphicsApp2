@@ -1,0 +1,10 @@
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\bin\Debug\GraphicsApp2.exe.config
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\bin\Debug\GraphicsApp2.exe
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\bin\Debug\GraphicsApp2.pdb
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.Form1.resources
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.Properties.Resources.resources
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.csproj.GenerateResource.cache
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.csproj.CoreCompileInputs.cache
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.exe
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.pdb
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.csprojAssemblyReference.cache
