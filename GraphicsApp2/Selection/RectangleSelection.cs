@@ -10,7 +10,7 @@ namespace GraphicsApp2.Selection
         Scene mainScene;
         Point startPos;
         Point endPos;
-        Rectangle selectionRectangle;
+        public Rectangle selectionRectangle;
         int segmentIndex;
 
         public RectangleSelection(Scene _mainScene)
@@ -41,11 +41,11 @@ namespace GraphicsApp2.Selection
                     g.Save();
                 }
 
-                using (Graphics g = Graphics.FromImage(src))
+                /*using (Graphics g = Graphics.FromImage(src))
                 {
                     g.FillRectangle(Brushes.White, selectionRectangle);
                     g.Save();
-                }
+                }*/
                 Point p = new Point(selectionRectangle.Left, selectionRectangle.Top);
                 Data.Segment segm = new Data.Segment(target, p);
                 segm.selectionStrategy = this;
@@ -65,7 +65,7 @@ namespace GraphicsApp2.Selection
             e.Graphics.DrawRectangle(Pens.DarkCyan, selectionRectangle);
         }
 
-        public void PaintSelection()
+        /*public void PaintSelection()
         {
             Image image = mainScene.GetSegmentAt(segmentIndex).image;
             Console.WriteLine(this.GetHashCode());
@@ -74,6 +74,24 @@ namespace GraphicsApp2.Selection
                 g.DrawRectangle(Pens.White, new Rectangle(0, 0, image.Width-1, image.Height-1));
                 g.Save();
             }
+        }*/
+
+        public Image SelectionImage(int ind)
+        {
+            Image image = mainScene.GetSegmentAt(ind).image;
+            Bitmap selectionImage = new Bitmap(image);
+            using (Graphics g = Graphics.FromImage(selectionImage))
+            {
+                g.Clear(Color.Transparent);
+                g.DrawRectangle(Pens.White, new Rectangle(0, 0, image.Width - 1, image.Height - 1));
+                g.Save();
+            }
+            return selectionImage;
+        }
+
+        public void SetIndex(int _index)
+        {
+            segmentIndex = _index;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace GraphicsApp2.Selection
 {
@@ -8,6 +9,8 @@ namespace GraphicsApp2.Selection
         void OnMouseMove(MouseEventArgs e);
         bool OnMouseUp(MouseEventArgs e);
         void OnSelectionPaint(PaintEventArgs e);
-        void PaintSelection();
+        Image SelectionImage(int ind);
+        //void PaintSelection();
+        void SetIndex(int _index);
     }
 }

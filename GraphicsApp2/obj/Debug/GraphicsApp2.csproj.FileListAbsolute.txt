@@ -8,3 +8,6 @@ D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\Graphic
 D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.exe
 D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.pdb
 D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.csprojAssemblyReference.cache
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\bin\Debug\Newtonsoft.Json.dll
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\bin\Debug\Newtonsoft.Json.xml
+D:\DATA\Programming\Grafika\Grafika2\GraphicsApp2\GraphicsApp2\obj\Debug\GraphicsApp2.csproj.CopyComplete

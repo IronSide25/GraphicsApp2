@@ -10,7 +10,8 @@ namespace GraphicsApp2.Selection
         Scene mainScene;
         Point startPos;
         Point endPos;
-        Rectangle selectionRectangle;
+        public Rectangle selectionRectangle;
+        int segmentIndex;
         Image image;
 
         public EllipseSelection(Scene _mainScene)
@@ -60,16 +61,17 @@ namespace GraphicsApp2.Selection
                 if (xEnd > src.Width)
                     xEnd = src.Width;
 
-                for (int y = yStart; y < yEnd; y++)            
+                /*for (int y = yStart; y < yEnd; y++)            
                     for (int x = xStart; x < xEnd; x++)
                         if (IsInsideEllipse(selectionRectangle, new Point(x, y)))
-                            src.SetPixel(x, y, Color.White);
+                            src.SetPixel(x, y, Color.White);*/
 
                 Point p = new Point(selectionRectangle.Left, selectionRectangle.Top);
                 Data.Segment segm = new Data.Segment(target, p);
                 segm.selectionStrategy = this;
                 mainScene.AddSegment(segm);
                 image = segm.image;
+                segmentIndex = mainScene.GetSegmentCount() - 1;              
             }
             return true;
         }
@@ -84,8 +86,9 @@ namespace GraphicsApp2.Selection
             e.Graphics.DrawEllipse(Pens.DarkCyan, selectionRectangle);
         }
 
-        public void PaintSelection()
+        /*public void PaintSelection()
         {
+            Image image = mainScene.GetSegmentAt(segmentIndex).image;
             using (Graphics g = Graphics.FromImage(image))
             {
                 Size size = selectionRectangle.Size;
@@ -94,7 +97,22 @@ namespace GraphicsApp2.Selection
                 g.DrawEllipse(Pens.White, new Rectangle(new Point(0, 0), size));
                 g.Save();
             }
-            Console.WriteLine("SEECTION");
+        }*/
+
+        public Image SelectionImage(int ind)
+        {
+            Image image = mainScene.GetSegmentAt(ind).image;
+            Bitmap selectionImage = new Bitmap(image);
+            using (Graphics g = Graphics.FromImage(selectionImage))
+            {
+                g.Clear(Color.Transparent);
+                Size size = selectionRectangle.Size;
+                size.Width -= 1;
+                size.Height -= 1;
+                g.DrawEllipse(Pens.White, new Rectangle(new Point(0, 0), size));
+                g.Save();
+            }
+            return selectionImage;
         }
 
         private bool IsInsideEllipse(Rectangle ellipse, Point location)
@@ -112,6 +130,11 @@ namespace GraphicsApp2.Selection
             Point normalized = new Point(location.X - center.X, location.Y - center.Y);
             return ((double)(normalized.X * normalized.X)
                      / (_xRadius * _xRadius)) + ((double)(normalized.Y * normalized.Y) / (_yRadius * _yRadius)) <= 1.00;
+        }
+
+        public void SetIndex(int _index)
+        {
+            segmentIndex = _index;
         }
     }
 }

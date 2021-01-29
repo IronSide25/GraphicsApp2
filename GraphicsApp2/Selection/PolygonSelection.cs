@@ -10,7 +10,7 @@ namespace GraphicsApp2.Selection
         const float minDistanceOffset = 5;
         List<Point> points;
         Scene mainScene;
-        Point[] newPoints;
+        public Point[] newPoints;
         int segmentIndex;
 
 
@@ -58,7 +58,7 @@ namespace GraphicsApp2.Selection
                 }
         }
 
-        public void PaintSelection()
+        /*public void PaintSelection()
         {
             using (Graphics g = Graphics.FromImage(mainScene.GetSegmentAt(segmentIndex).image))
             {
@@ -68,6 +68,22 @@ namespace GraphicsApp2.Selection
                 }
                 g.Save();
             }
+        }*/
+
+        public Image SelectionImage(int ind)
+        {
+            Image image = mainScene.GetSegmentAt(ind).image;
+            Bitmap selectionImage = new Bitmap(image);
+            using (Graphics g = Graphics.FromImage(selectionImage))
+            {
+                g.Clear(Color.Transparent);
+                for (int i = 1; i < newPoints.Length; i++)
+                {
+                    g.DrawLine(Pens.White, newPoints[i - 1], newPoints[i]);
+                }
+                g.Save();
+            }
+            return selectionImage;
         }
 
         private void CutElement()
@@ -113,10 +129,10 @@ namespace GraphicsApp2.Selection
             int xStart = selectionRectangle.Location.X;
             int xEnd = selectionRectangle.Location.X + selectionRectangle.Width;
 
-            for (int y = yStart; y < yEnd; y++)
+            /*for (int y = yStart; y < yEnd; y++)
                 for (int x = xStart; x < xEnd; x++)
                     if (IsInPolygon(points.ToArray(), new Point(x, y)))
-                        src.SetPixel(x, y, Color.White);
+                        src.SetPixel(x, y, Color.White);*/
 
             Point p = new Point(selectionRectangle.Left, selectionRectangle.Top);
             Data.Segment segm = new Data.Segment(target, p);
@@ -154,6 +170,11 @@ namespace GraphicsApp2.Selection
                 oldPoint = newPoint;
             }
             return inside;
+        }
+
+        public void SetIndex(int _index)
+        {
+            segmentIndex = _index;
         }
     }
 }

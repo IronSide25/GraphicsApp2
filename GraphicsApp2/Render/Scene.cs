@@ -10,6 +10,7 @@ namespace GraphicsApp2.Render
         private readonly int width, height;
         private List<Segment> segments;
         public Image lastSceneImage;
+        public static Scene instance;
 
         public Scene(int _width, int _height, TableLayoutPanel _previewPanel)
         {
@@ -17,6 +18,7 @@ namespace GraphicsApp2.Render
             height = _height;
             segments = new List<Segment>();
             lastSceneImage = new Bitmap(width, height);
+            instance = this;
         }
 
         public void AddSegment(Segment segment)
@@ -45,9 +47,12 @@ namespace GraphicsApp2.Render
             using (Graphics grfx = Graphics.FromImage(finalImage))
             {
                for(int i = 1; i < segments.Count; i++)
+               {
                     grfx.DrawImage(segments[i].image, segments[i].position.X, segments[i].position.Y);
+                    if(segments[i].isHighlighted)
+                        grfx.DrawImage(segments[i].selectionStrategy.SelectionImage(i), segments[i].position.X, segments[i].position.Y);
 
-                //grfx.DrawImage(segments[1].image, segments[1].position.X, segments[1].position.Y);
+               }                   
                 grfx.Save();
             }
             lastSceneImage = finalImage;
